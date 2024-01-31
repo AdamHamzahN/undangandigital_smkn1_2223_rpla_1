@@ -12,17 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('resepsis', function (Blueprint $table) {
-            $table->int('id_resepsi',11,true,false)->nullable(false);
-            $table->int('id_pengantin',11,false,false)->nullable(false)->index('id_pengantin');
+            $table->integer('id_resepsi', 11, true, false)->nullable(false);
+            $table->integer('id_pengantin')->nullable(false)->index('id_pengantin');
             $table->datetime('waktu')->nullable(false);
             $table->text('nama_tempat')->nullable(false);
             $table->text('koordinat')->nullable(false);
 
             $table->foreign('id_pengantin')->on('pengantin')
-                            ->references('id_pengantin')
-                            ->onUpdate('cascade')
-                            ->onDelete('cascade');
-
+                ->references('id_pengantin')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

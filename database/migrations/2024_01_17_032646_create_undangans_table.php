@@ -12,14 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('undangans', function (Blueprint $table) {
-           $table->int('id_undangan',11,true,true)->nullable(false);
-           $table->int('id_pengantin',11,false,false)->nullable(false)->index('id_pengantin');
+            $table->integer('id_undangan', true, false)->nullable(false);
+            $table->integer('id_pengantin')->nullable(false)->index('id_pengantin');
+            $table->integer('id_tema')->nullable(false)->index('id_tema');
 
-           $table->foreign('id_pengantin')->on('pengantin')
-                            ->references('id_pengantin')
-                            ->onUpdate('cascade')
-                            ->onDelete('cascade');
+            $table->foreign('id_pengantin')->on('pengantin')
+                ->references('id_pengantin')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
+            $table->foreign('id_tema')->on('temas')
+                ->references('id_tema')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tamus', function (Blueprint $table) {
-            $table->integer('id_tamu', true, false)->nullable(false);
-            $table->string('nama_tamu', 100)->nullable(false);
+        Schema::create('kartu_ucapans', function (Blueprint $table) {
+            $table->integer('id_ucapan',true,false)->nullable(false);
             $table->integer('id_undangan')->nullable(false)->index('id_undangan');
+            $table->string('ucapan',200)->nullable(false);
+            $table->string('nama',100)->nullable(false);
 
             $table->foreign('id_undangan')->on('undangans')
                   ->references('id_undangan')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
+
+
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tamus');
+        Schema::dropIfExists('kartu_ucapans');
     }
 };

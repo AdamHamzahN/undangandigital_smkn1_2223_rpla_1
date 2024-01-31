@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengantins', function (Blueprint $table) {
-            $table->int('id_pengantin',11,true,false)->nullable(false);
+        Schema::create('pengantin', function (Blueprint $table) {
+            $table->integer('id_pengantin',true,false)->nullable(false);
             $table->string('nama_pengantin_pria',200)->nullable(false);
             $table->string('nama_pengantin_wanita',200)->nullable(false);
             $table->string('nama_ayah_pria',200)->nullable(false);
