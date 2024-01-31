@@ -1,9 +1,17 @@
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
 .login{
-    background-color: blue;
+    background-color:rgba(0, 55, 252, 0.56);
 }
 
 .text-login{
     font-family: inter;
+}
+
+.login-card{
+    margin-top: 300px;
+}
+
+.login-input{
+    background-color:#8FB0EF;
 }
