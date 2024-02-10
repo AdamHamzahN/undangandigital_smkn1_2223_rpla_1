@@ -14,15 +14,9 @@ return new class extends Migration
         Schema::create('undangans', function (Blueprint $table) {
             $table->integer('id_undangan', true, false)->nullable(false);
             $table->integer('id_pengantin')->nullable(false)->index('id_pengantin');
-            $table->integer('id_tema')->nullable(false)->index('id_tema');
 
             $table->foreign('id_pengantin')->on('pengantin')
                 ->references('id_pengantin')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            $table->foreign('id_tema')->on('temas')
-                ->references('id_tema')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

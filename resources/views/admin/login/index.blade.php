@@ -28,6 +28,7 @@
                                     <label for="password" class="mb-3">Password :</label><br>
                                     <input type="text" name="password" id="password" class="form-control login-input" required><br>
                                 </div>
+                                <a href=""><button class="btn btn-primary btn-block ml-10 ">LOGIN</button></a>
                             </form>
                         </div>
                     </div>

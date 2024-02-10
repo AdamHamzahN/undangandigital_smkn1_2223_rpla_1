@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integer('id_paket',true,false)->nullable(false);
             $table->string('nama_paket',100)->nullable(false);
             $table->text('detail_paket')->nullable(false);
+            $table->timestamps();
 
             
         });

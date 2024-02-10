@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class tema extends Model
 {
     use HasFactory;
+    protected $table = 'temas';
+    protected $primarykey = 'id_tema';
+    protected $fillable = ['nama_tama'];
+    public $timestamps = true;
 }

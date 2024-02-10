@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class paket extends Model
 {
     use HasFactory;
+    protected $table = 'pakets';
+    protected $primarykey = 'nama_paket';
+    protected $fillable = ['detail_paket'];
+    public $timestamps = true;
 }

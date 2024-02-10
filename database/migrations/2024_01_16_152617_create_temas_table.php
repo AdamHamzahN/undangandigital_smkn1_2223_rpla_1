@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('temas', function (Blueprint $table) {
             $table->integer('id_tema',true,false)->nullable(false);
             $table->string('nama_tema',100)->nullable(false);
+            $table->timestamps();
         });
     }
 
