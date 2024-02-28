@@ -1,7 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\TemaController;
+use App\Models\pesanan;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +23,40 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/login')->group(function(){
-    Route::get('/',[AdminController::class,'login'])->name('login.index');
-    Route::post('/check',[AdminController::class,'check'])->name('login.check');
+/**
+ * HALAMAN KHUSUS UNTUK ADMIN
+ *  /admin
+ */
+Route::prefix('/admin')->group(function () {
+    /**
+     * HALAMAN LOGIN UNTUK ADMIN
+     *  /admin/login
+     */
+    Route::prefix('/login')->group(function () {
+        Route::get('/', [AdminController::class, 'login'])->name('login.index');
+        Route::post('/check', [AdminController::class, 'check'])->name('login.check');
+    });
+
+    /**
+     * HALAMAN DASHBOARD
+     * /admin/dashboard
+     */
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+
+    /**
+     * /admin/pesanan
+     */
+    Route::prefix('/pesanan')->group(function () {
+        Route::get('/data', [PesananController::class, 'dataPesanan'])->name('pesanan.data');
+    });
+
+    /**
+     * /admin/tema
+     */
+    Route::prefix('/tema')->group(function () {
+        Route::get('/', [TemaController::class, 'index'])->name('tema.index');
+        Route::get('/data', [TemaController::class, 'dataTema'])->name('tema.data');
+        Route::get('/tambah', [TemaController::class, 'tambah'])->name('tema.tambah');
+    });
 });

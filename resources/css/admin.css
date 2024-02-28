@@ -1,0 +1,48 @@
+/* npm i bootstrap */
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+/* npm i bootstrap-icons */
+@import 'node_modules/bootstrap-icons/font/bootstrap-icons.css';
+/* npm i datatables*/
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
+
+
+/* ADMIN UNDANGAN*/
+/* LOGIN */
+.login {
+    background-color: rgba(0, 55, 252, 0.56);
+}
+
+.text-login {
+    font-family: inter;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.login-input {
+    background-color: #8FB0EF;
+}
+
+/* SIDE BAR */
+.nav-link {
+    color: rgba(255, 255, 255, 1);
+}
+
+.active {
+    background-color: rgba(117, 106, 106, 1);
+}
+
+.header{
+    font-family: calistoga;
+
+}
+
+.tambah-input{
+    background-color: #8FB0EF;
+    
+}

@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login Admin</title>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/admin.css'])
 </head>
 
 <body class="login">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 mx-auto">
+            <div class="col-lg-12 mx-auto parent">
                 <div class="col-lg-6 mx-auto login-card">
                     <div class="card mx-auto display-flex "> <!-- Add mt-5 class for top margin -->
                         <div class="card-header card-header text-center bg-white">

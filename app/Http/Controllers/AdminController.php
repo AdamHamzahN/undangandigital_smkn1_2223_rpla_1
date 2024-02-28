@@ -20,12 +20,15 @@ class AdminController extends Controller
             'password' => ['required']
         ]);
 
-        $check = admin::where('nama_admin','=',$request->nama_admin )
-                        ->where('password','=',$request->password)
-                        ->exists();
-        if($check){
+        $admin = [
+            'nama_admin' => $data['nama_admin']
+        ];
+        $check = admin::where('nama_admin', '=', $request->nama_admin)
+            ->where('password', '=', $request->password)
+            ->exists();
+        if ($check) {
             return redirect()->route('admin.dashboard');
-        }else{
+        } else {
             return redirect()->route('login.index');
         }
     }
