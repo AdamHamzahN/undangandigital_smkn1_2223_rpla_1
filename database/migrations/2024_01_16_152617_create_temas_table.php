@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -14,7 +15,9 @@ return new class extends Migration
         Schema::create('temas', function (Blueprint $table) {
             $table->integer('id_tema',true,false)->nullable(false);
             $table->string('nama_tema',100)->nullable(false);
-            $table->timestamps();
+            $table->integer('jumlah_pembelian_tema')->default(0);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

@@ -10,6 +10,6 @@ class tema extends Model
     use HasFactory;
     protected $table = 'temas';
     protected $primarykey = 'id_tema';
-    protected $fillable = ['nama_tama'];
+    protected $fillable = ['nama_tema'];
     public $timestamps = true;
 }

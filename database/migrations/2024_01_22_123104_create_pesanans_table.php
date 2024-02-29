@@ -13,22 +13,23 @@ return new class extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->integer('id_pesanan', true, false)->nullable(false);
-            $table->integer('id_paket')->index('id_paket');
-            $table->integer('id_admin')->index('id_admin');
-            $table->integer('id_pemesan')->index('id_pemesan');
+            $table->integer('id_paket')->nullable(false)->index('id_paket');
+            $table->integer('id_tema')->nullable(false)->index('id_tema');
+            $table->integer('id_pemesan')->nullable(false)->index('id_pemesan');
             $table->integer('id_undangan')->nullable(false)->index('id_undangan');
             $table->timestamps();
 
+            
+            $table->foreign('id_tema')->on('temas')
+            ->references('id_tema')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            
             $table->foreign('id_paket')->on('pakets')
                 ->references('id_paket')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
-            $table->foreign('id_admin')->on('admins')
-                ->references('id_admin')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
+                
             $table->foreign('id_pemesan')->on('pemesans')
                 ->references('id_pemesan')
                 ->onUpdate('cascade')
@@ -38,8 +39,6 @@ return new class extends Migration
                 ->references('id_undangan')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
-
         });
     }
 

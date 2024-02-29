@@ -1,6 +1,5 @@
+/* npm i bootstrap */
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
-@import "node_module/bootstrap/scss/bootstrap.css"
-
 .login{
     background-color:rgba(0, 55, 252, 0.56);
 }
@@ -16,3 +15,8 @@
 .login-input{
     background-color:#8FB0EF;
 }
+/* npm i bootstrap-icons */
+@import 'node_modules/bootstrap-icons/font/bootstrap-icons.css';
+/* npm i datatables*/
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
+
