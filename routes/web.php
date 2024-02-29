@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FormUndanganController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\TemaController;
@@ -21,6 +22,16 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::prefix('/login')->group(function(){
+    Route::get('/',[AdminController::class,'login'])->name('login.index');
+    Route::post('/check',[AdminController::class,'check'])->name('login.check');
+});
+
+Route::prefix('/formundangan')->group(function(){
+Route::get('/',[FormUndanganController::class,'FormUndangan'])->name('formundangan.index');
 });
 
 /**

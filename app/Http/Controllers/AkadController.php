@@ -8,3 +8,4 @@ class AkadController extends Controller
 {
     //
 }
+    
