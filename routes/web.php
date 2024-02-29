@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\TemaController;
+use App\Http\Controllers\UndanganController;
 use App\Models\pesanan;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -59,4 +60,10 @@ Route::prefix('/admin')->group(function () {
         Route::get('/data', [TemaController::class, 'dataTema'])->name('tema.data');
         Route::get('/tambah', [TemaController::class, 'tambah'])->name('tema.tambah');
     });
+});
+
+
+//undangan
+Route::prefix('/undangan_digital-NikahYuk')->group(function () {
+    Route::get('/',[UndanganController::class, 'index'])->name('undangan.index');
 });
