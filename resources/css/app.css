@@ -1,4 +1,5 @@
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import "node_module/bootstrap/scss/bootstrap.css"
 
 .login{
     background-color:rgba(0, 55, 252, 0.56);
