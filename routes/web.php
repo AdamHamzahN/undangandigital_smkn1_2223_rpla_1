@@ -26,8 +26,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/formundangan')->group(function () {
-    Route::get('/', [FormUndanganController::class, 'FormUndangan'])->name('formundangan.index');
+Route::prefix('/login')->group(function(){
+    Route::get('/',[AdminController::class,'login'])->name('login.index');
+    Route::post('/check',[AdminController::class,'check'])->name('login.check');
+});
+
+Route::prefix('/formundangan')->group(function(){
+Route::get('/',[FormUndanganController::class,'FormUndangan'])->name('formundangan.index');
 });
 
 /**
