@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <table class="DataTable table-hovered table-bordered table-striped table-responsive">
+                        <table class="DataTable table-hovered table-bordered table-striped table-responsive text-center">
                             <thead>
                                 <tr>
                                     <th>Id Tema</th>

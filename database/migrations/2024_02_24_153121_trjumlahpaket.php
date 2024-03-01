@@ -12,12 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::unprepared('
-        CREATE TRIGGER TRjumlahPaket after insert ON pesanans FOR EACH ROW
-         BEGIN
-         UPDATE temas SET jumlah_pembelian_paket = jumlah_pembelian_paket + 1 WHERE id_paket = NEW.id_paket;
-        END
-       ');
+    //     DB::unprepared('
+    //     CREATE TRIGGER TRjumlahPaket after insert ON pesanans FOR EACH ROW
+    //      BEGIN
+    //      UPDATE temas SET jumlah_pembelian_paket = jumlah_pembelian_paket + 1 WHERE id_paket = NEW.id_paket;
+    //     END
+    //    ');
     }
 
     /**

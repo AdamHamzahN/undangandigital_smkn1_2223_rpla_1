@@ -89,7 +89,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('admin/paket  *') ? 'active' : '' }}" href="/admin/paket">
+                            <a class="nav-link {{ Request::is('admin/paket*') ? 'active' : '' }}" href="/admin/paket">
                                 PAKET
                             </a>
                         </li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\paket;
 use App\Models\pembayaran;
+use App\Models\pemesan;
 use App\Models\pesanan;
 use App\Models\tema;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class DashboardController extends Controller
             'datatema'=>tema::orderBy('jumlah_pembelian_tema','desc')->take(3)->get(),
             'datapaket'=>paket::orderBy('jumlah_pembelian_paket','desc')->take(3)->get(),
             'datapembayaran'=>pembayaran::latest()->paginate(5),
-            'datapesanan'=>pesanan::latest()->paginate(5)
+            'datapesanan'=>pesanan::latest()->paginate(5),
+            'datapemesan' => Pemesan::orderByDesc('id_pemesan')->paginate(5),
         ];
         return view('admin.dashboard',$data);
     }

@@ -37,10 +37,12 @@
                                     <tbody>
                                         <tr>
                                             @foreach ($datapesanan as $pesanan)
-                                                <td>{{ $pesanan->id_pesanan }}</td>
-                                                <td>{{ $pemesan->nama_pemesan }}</td>
-                                                <td></td>
-                                                
+                                                @foreach ($datapemesan as $pemesan)
+                                                    <td>{{ $pesanan->id_pesanan }}</td>
+                                                    <td>{{ $pemesan->nama_pemesan }}</td>
+                                                    <td>{{ $pemesan->kontak }}</td>
+                                                    <td>{{ $pesanan->created_at }}</td>
+                                                @endforeach
                                             @endforeach
                                         </tr>
                                     </tbody>
