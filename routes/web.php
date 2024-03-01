@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormUndanganController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UndanganController;
@@ -71,17 +70,10 @@ Route::prefix('/admin')->group(function () {
         Route::get('/data', [TemaController::class, 'dataTema'])->name('tema.data');
         Route::get('/tambah', [TemaController::class, 'tambah'])->name('tema.tambah');
     });
-
-
-    Route::prefix('/paket')->group(function () {
-        Route::get('/', [PaketController::class, 'index'])->name('paket.index');
-        Route::get('/data', [PaketController::class, 'dataTema'])->name('paket.data');
-        Route::get('/tambah', [PaketController::class, 'tambah'])->name('paket.tambah');
-    });
 });
 
 
 //undangan
 Route::prefix('/undangan_digital-NikahYuk')->group(function () {
-    Route::get('/', [UndanganController::class, 'index'])->name('undangan.index');
+    Route::get('/',[UndanganController::class, 'index'])->name('undangan.index');
 });
