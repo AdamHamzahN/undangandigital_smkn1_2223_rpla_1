@@ -1,63 +1,55 @@
 /* Undangan */
+
 :root {
     --pink: #f14e95;
     --red: #FF8989;
-    --shadow: 0 2px 2px rgb(0 0 0 / 1.5);
+    --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
 }
 
 body {
-    /* font-size: 1.2rem; */
+    font-size: 1.2rem;
     font-family: "Work Sans", sans-serif;
     min-height: 2000px;  
 }
 
 img {
-    /* content: ''; */
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: -1;
     /* background-position: center; */
-    /* background-size: 84rem; */
-    /* z-index: -1; */
+    /* background-size: cover; */
 }
 
-/* na{ */
-    /* content: '';  */
-    /* position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; */
-    /* background-image: url(public/img/pasangan.png); */
-    /* background-position: center; */
-    /* background-size: 84rem;
-    z-index: -1; */
-    /* filter: grayscale(); */
-/* } */
 
 .hero {
     position: relative;
-    min-height: 135vh;
+    min-height: 100vh;
 }
 
-.hero h1, .hero h5, .hero p{
+.content {
+    max-height: 43vh;
+}
+
+.hero h1, .hero h5, .hero h3, .hero p{
     text-shadow: var(--shadow);
     color: white;
 
 }
 
 .nama_tamu {
-    font-size: 28px;
+    font-size: 25px;
     text-shadow: var(--shadow);
     color: white;
 }
 
 .hero h1 {
     font-family: "Sacramento", cursive;
-    font-size: 6rem;
+    font-size: 4rem;
 }
 
 /* nama_tamu
@@ -77,6 +69,30 @@ img {
 .hero a:hover {
     background-color: var(--pink);
     color: white;
+}
+
+.home {
+    background-image: url(img/pasangan2.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding-top: 28rem;
+}
+
+.home h1 {
+    font-family: "Sacramento", cursive;
+    font-size: 4rem;
+    color: white;
+    text-shadow: var(--shadow);
+}
+
+.home h5 {
+    color: white;
+    text-shadow: var(--shadow);
+}
+
+.pasangan {
+    padding-top: 3rem;
 }
 
 /* Media Query */
