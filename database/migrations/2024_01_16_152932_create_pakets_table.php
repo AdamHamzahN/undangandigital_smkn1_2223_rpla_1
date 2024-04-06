@@ -17,7 +17,8 @@ return new class extends Migration
             $table->integer('jumlah_pembelian_paket')->default(0);
             $table->text('detail_paket')->nullable(false);
             $table->integer('harga')->nullable(false);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
 
             
         });

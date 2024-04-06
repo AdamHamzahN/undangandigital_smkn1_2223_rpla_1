@@ -17,7 +17,8 @@ return new class extends Migration
             $table->integer('id_tema')->nullable(false)->index('id_tema');
             $table->integer('id_pemesan')->nullable(false)->index('id_pemesan');
             $table->integer('id_undangan')->nullable(false)->index('id_undangan');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
 
             
             $table->foreign('id_tema')->on('temas')

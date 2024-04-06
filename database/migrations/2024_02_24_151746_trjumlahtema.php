@@ -12,12 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-    //     DB::unprepared('
-    //     CREATE TRIGGER TRjumlahTema after insert ON pesanans FOR EACH ROW
-    //      BEGIN
-    //      UPDATE temas SET jumlah_pembelian_tema = jumlah_pembelian_tema + 1 WHERE id_tema = NEW.id_tema;
-    //     END
-    //    ');
+        DB::unprepared('
+            CREATE TRIGGER TRJumlahTema after insert ON pesanans FOR EACH ROW
+            begin
+            update temas set jumlah_pembelian_tema = jumlah_pembelian_tema + 1 where id_tema =new.id_tema;
+            end
+        ');
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::unprepared('DROP TRIGGER "TRjumlahTema"');
+        DB::unprepared('DROP TRIGGER "TRJumlahTema"');
     }
 };

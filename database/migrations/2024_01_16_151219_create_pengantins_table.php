@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('pengantin', function (Blueprint $table) {
             $table->integer('id_pengantin',true,false)->nullable(false);
             $table->string('nama_pengantin_pria',200)->nullable(false);
+            $table->string('nama_panggilan_pria',200)->nullable(false);
             $table->string('nama_pengantin_wanita',200)->nullable(false);
+            $table->string('nama_panggilan_wanita',200)->nullable(false);
             $table->string('nama_ayah_pria',200)->nullable(false);
             $table->string('nama_ibu_pria',200)->nullable(false);
             $table->string('nama_ayah_wanita',200)->nullable(false);
