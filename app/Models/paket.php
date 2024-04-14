@@ -9,7 +9,7 @@ class paket extends Model
 {
     use HasFactory;
     protected $table = 'pakets';
-    protected $primarykey = 'nama_paket';
-    protected $fillable = ['detail_paket'];
+    protected $primarykey = 'id_paket';
+    protected $fillable = ['nama_paket','detail_paket','harga'];
     public $timestamps = true;
 }

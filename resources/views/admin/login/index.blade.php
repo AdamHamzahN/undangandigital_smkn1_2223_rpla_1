@@ -19,7 +19,8 @@
                             <h1 class="text-black text-login">Login Admin</h1>
                         </div>
                         <div class="card-body">
-                            <form action="{{ url('admin/check') }}" method="post">
+                            <form action="{{ url('admin/login/check') }}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label for="nama_admin" class="mb-3">Nama :</label>
                                     <input type="text" name="nama_admin" id="nama_admin" class="form-control login-input" required><br>
@@ -28,7 +29,7 @@
                                     <label for="password" class="mb-3">Password :</label><br>
                                     <input type="text" name="password" id="password" class="form-control login-input" required><br>
                                 </div>
-                                <a href=""><button class="btn btn-primary btn-block ml-10 ">LOGIN</button></a>
+                                <button class="btn btn-primary btn-block ml-10 ">LOGIN</button>
                             </form>
                         </div>
                     </div>

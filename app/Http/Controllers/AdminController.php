@@ -26,6 +26,7 @@ class AdminController extends Controller
         $check = admin::where('nama_admin', '=', $request->nama_admin)
             ->where('password', '=', $request->password)
             ->exists();
+            
         if ($check) {
             return redirect()->route('admin.dashboard');
         } else {

@@ -16,6 +16,13 @@ class PesananController extends Controller
         $this->pesananModel = new pesanan();
     }
 
+    public function index(){
+        $data =[
+            'pesanan'=>pesanan::all(),
+        ];
+        return view('admin.pesanan.index',$data);
+    }
+
 
     public function dataPesanan(Request $request)
     {
