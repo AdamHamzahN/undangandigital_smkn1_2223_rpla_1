@@ -16,7 +16,7 @@
                 <div class="col-lg-6 mx-auto formundangan-card">
                     <div class="card mx-auto display-flex "> <!-- Add mt-5 class for top margin -->
                         <div class="card-header card-header text-center bg">
-                            <h1 class="text-black text-formundangan">Nikah Yuk</h1>
+                            <h1 class="text-black text-formundangan">NIKAH YUK</h1>
                         </div>
                         <div class="card-body">
                             <form action="{{ url('formundangan/registrasi.blade.php') }}" method="post">
