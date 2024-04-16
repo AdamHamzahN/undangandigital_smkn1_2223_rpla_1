@@ -1,0 +1,55 @@
+/* npm i bootstrap */
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+/* npm i bootstrap-icons */
+@import 'node_modules/bootstrap-icons/font/bootstrap-icons.css';
+/* npm i datatables*/
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
+
+
+/* FORM UNDANGAN*/
+/* Index */
+.formundangan {
+    background-color: #08D9D6;
+}
+
+.text-formundangan {
+    font-family: inter;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formundangan-input {
+    background-color: #EEEEEE;
+}
+
+.btn {
+    background-color: #A6E3E9;
+    margin-left: 85%;
+}
+
+.card-body {
+    background-color: #CBF1F5;
+}
+
+/* SIDE BAR */
+.nav-link {
+    color: #000000;
+}
+
+.active {
+    background-color: rgba(117, 106, 106, 1);
+}
+
+.heade {
+    font-family: calistoga;
+
+}
+
+.bg{
+    background-color: #00ADB5;
+}
