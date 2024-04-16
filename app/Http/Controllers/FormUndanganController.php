@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class FormUndanganController extends Controller
 {
     //
-    public function FormUndangan(){
+    public function index(){
         return view('formundangan.index');
     }
 }

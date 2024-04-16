@@ -26,8 +26,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+  //Form Undangan
 Route::prefix('/formundangan')->group(function () {
-    Route::get('/', [FormUndanganController::class, 'FormUndangan'])->name('formundangan.index');
+    Route::get('/', [FormUndanganController::class, 'index'])->name('formundangan.index');
 });
 
 /**
