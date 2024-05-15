@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\FormUndanganController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaketController;
@@ -32,26 +33,29 @@ Route::prefix('/formundangan')->group(function () {
 });
 
 
+
+
+/**
+ * Halaman Login Admin
+ * /login
+ */
+Route::prefix('/login')->group(function () {
+    Route::get('/', [AdminLoginController::class, 'index'])->name('login');
+    Route::post('/check', [AdminLoginController::class, 'check'])->name('login.check');
+});
+Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
+
 /**
  * HALAMAN KHUSUS UNTUK ADMIN
  *  /admin
  */
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->middleware('AdminMiddleware')->group(function () {
     /**
-     * HALAMAN LOGIN UNTUK ADMIN
-     *  /admin/login
-     */
-    Route::prefix('/login')->group(function () {
-        Route::get('/', [AdminController::class, 'login'])->name('login.index');
-        Route::post('/check', [AdminController::class, 'check'])->name('login.check');
-    });
-
-    /**
-     * HALAMAN DASHBOARD
+     * Halaman Dashboard
      * /admin/dashboard
      */
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     /**
      * HALAMAN TEMA
@@ -64,9 +68,8 @@ Route::prefix('/admin')->group(function () {
         Route::post('/simpan', [TemaController::class, 'simpan'])->name('tema.simpan');
         Route::post('/hapus', [TemaController::class, 'delete'])->name('tema.hapus');
         Route::get('/edit/{id_tema}', [TemaController::class, 'edit'])->name('tema.edit');
-
     });
-    
+
     /**
      * HALAMAN PAKET
      * /admin/paket
@@ -85,7 +88,7 @@ Route::prefix('/admin')->group(function () {
      * /admin/pesanan
      */
     Route::prefix('/pesanan')->group(function () {
-        Route::get('/',[PesananController::class,'index'])->name('pesanan.index');
+        Route::get('/', [PesananController::class, 'index'])->name('pesanan.index');
         Route::get('/data', [PesananController::class, 'dataPesanan'])->name('pesanan.data');
         Route::get('/tambah', [PesananController::class, 'tambah'])->name('pesanan.tambah');
     });

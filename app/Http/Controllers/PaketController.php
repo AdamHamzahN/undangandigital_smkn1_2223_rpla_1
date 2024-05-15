@@ -11,16 +11,19 @@ class PaketController extends Controller
 {
     protected $paketModel;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->paketModel = new paket();
     }
-    public function index(){
-        $data =[
-            'paket'=>paket::all()
+    public function index()
+    {
+        $data = [
+            'paket' => paket::all()
         ];
         return view('admin.paket.index');
     }
-    public function tambah(){
+    public function tambah()
+    {
         return view('admin.paket.tambah');
     }
 
@@ -93,7 +96,7 @@ class PaketController extends Controller
          * method ini hanya bisa diakses dengan http request POST
          * 
          */
-        $hapus = paket::where('id_paket',$request->id_paket)->delete();
+        $hapus = paket::where('id_paket', $request->id_paket)->delete();
         if ($hapus) {
             $pesan = [
                 'status' => 'success',
@@ -108,10 +111,16 @@ class PaketController extends Controller
         return response()->json($pesan);
     }
 
-    public function dataPaket(Request $request){
-        if($request->ajax()){
+    public function dataPaket(Request $request)
+    {
+        if ($request->ajax()) {
             $data = $this->paketModel->get();
-            return DataTables::of($data)->toJson();
+            return DataTables::of($data)->editColumn('created_at', function ($row) {
+                return $row->created_at->format('Y-m-d H:i:s');
+            })
+                ->editColumn('updated_at', function ($row) {
+                    return $row->updated_at->format('Y-m-d H:i:s');
+                })->toJson();
         }
     }
 }

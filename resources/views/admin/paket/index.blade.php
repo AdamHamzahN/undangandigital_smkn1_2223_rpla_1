@@ -1,17 +1,17 @@
 @extends('template.admin')
-@section('title', 'tema')
+@section('title', 'paket')
 @section('content')
     <div class="row">
         <div class="col-xl">
             <div class="header">
-                <h1><b>TEMA</b></h1>
+                <h1><b>Paket</b></h1>
             </div>
             <div class="content">
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-sm">
-                                <h4>Tabel Tema</h4>
+                                <h4>Tabel Paket</h4>
                             </div>
                             <div class="col-sm text-end"> <button class="btn btn-success btnTambahPaket "
                                     data-bs-target="#modalForm" data-bs-toggle="modal"
@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <table class="DataTable table-hovered table-bordered table-striped table-responsive text-center">
                             <thead>
-                                <tr>
+                                <tr class="text-center"> 
                                     <th>Id Paket</th>
                                     <th>Nama Paket</th>
                                     <th>Penjualan Paket</th>
@@ -81,6 +81,7 @@
         // DataTable
         var table = $('.DataTable').DataTable({
             processing: true,
+            responsive: true,
             ServerSide: true,
             ajax: "{!! route('paket.data') !!}",
             columns: [{

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->integer('id_admin',true,false)->nullable(false);
             $table->string('nama_admin',50)->nullable(false);
-            $table->string('password',10)->nullable(false);
+            $table->string('password',100)->nullable(false);
         });
     }
 
