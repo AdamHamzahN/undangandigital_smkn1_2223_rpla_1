@@ -19,7 +19,7 @@
                             <h1 class="text-black text-formundangan">Nikah Yuk</h1>
                         </div>
                         <div class="card-body">
-                            <form action="{{ url('formundangan/registrasi.blade.php') }}" method="post">
+                            <form action="{{ url('formundangan/register') }}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama_admin" class="mb-3">Nama Pemesan :</label>
