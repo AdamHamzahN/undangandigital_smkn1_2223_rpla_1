@@ -9,7 +9,7 @@
 body {
     font-size: 1.2rem;
     font-family: "Work Sans", sans-serif;
-    min-height: 2000px;  
+    min-height: 4000px;  
 }
 
 img {
@@ -92,7 +92,38 @@ img {
 }
 
 .pasangan {
-    padding-top: 3rem;
+    background-image: url(img/bg.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding-top: 1rem;
+}
+
+.pasangan .pria {
+    background-image: url(img/pria.png);
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.pasangan .wanita {
+    background-image: url(img/wanita.png);
+    background-size: cover;
+    border-radius: 100%;
+    
+}
+
+.pasangan .couple {
+    margin-top: 50px;
+}
+
+.pasangan .couple h3{
+    font-family: 'Sacramento';
+    font-size: 2.4rem;
+    color: var(--red);
+}
+
+.pasangan .couple img {
+    width: 100%;
 }
 
 /* Media Query */

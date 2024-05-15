@@ -93,6 +93,7 @@ Route::prefix('/admin')->group(function () {
 
 
 //undangan
+// http://localhost:8000/undangan_digital-NikahYuk?tamu=Bapak%20Jono
 Route::prefix('/undangan_digital-NikahYuk')->group(function () {
     Route::get('/', [UndanganController::class, 'index'])->name('undangan.index');
 });

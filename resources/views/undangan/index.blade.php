@@ -12,6 +12,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
+    <!-- bootstrap icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
     <!-- <link rel="stylesheet" href="style.css" /> -->
     @vite(['resources/css/style.css'])
 </head>
@@ -52,16 +58,62 @@
     </section>
 
     <section id="pasangan" class="pasangan">
-        <div class="row justify-content-center text-center">
-            <p>
-                "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
-                pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
-                dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
-                kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat
-                tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
-            </p>
-            <h6>QS. Ar-Rum : 21</h6>
-            _________
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p>
+                    "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+                    pasangan-pasangan untukmu dari jenismu sendiri, agar kamu
+                    cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di
+                    antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu
+                    benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang
+                    berpikir."
+                    </p>
+                    <h6>QS. Ar-Rum : 21</h6>
+                    <p>______________________</p>
+                </div>
+            </div>
+
+            <!-- foto pengantin -->
+            <div class="row couple">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-8 text-end">
+                            <h3>Adam</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, consequuntur!</p> -->
+                            <p>Putra pertama dari Bpk.Suryo <br> dan <br> Ibu Ozawa</p>
+                            <i class="bi bi-instagram"><a href="https://www.instagram.com/adam_m/?igsh=N3Rwa3Z3MWVyOHg3"> adam_m</a></i>
+                        </div>
+
+                        <div class="pria col-4">
+                            <img
+                            src="img/pria.png"
+                            alt="Adam"
+                            class="img-responsive rounded-circle"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wa col-lg-6">
+                    <div class="row">
+                        <div class=" wanita col-4">
+                            <img
+                            src="img/wanita.png"
+                            alt="Hawa"
+                            class="img-responsive rounded-circle"
+                            />
+                        </div>
+                        <div class="col-8">
+                            <h3>Hawa</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, consequuntur!</p> -->
+                            <p>Putri kedua dari Bpk.Nugroho <br> dan <br> Ibu Maria</p>
+                            <i class="bi bi-instagram"><a href="https://www.instagram.com/hawa123/?igsh=N3Rwa3Z3MWVyOHg3"> hawa123</a></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
