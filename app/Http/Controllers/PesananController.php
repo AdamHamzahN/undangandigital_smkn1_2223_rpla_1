@@ -16,27 +16,25 @@ class PesananController extends Controller
         $this->pesananModel = new pesanan();
     }
 
-    public function index(){
-        $data =[
-            'pesanan'=>pesanan::all(),
+    public function index()
+    {
+        $data = [
+            'pesanan' => pesanan::all(),
         ];
-        return view('admin.pesanan.index',$data);
+        return view('admin.pesanan.index', $data);
     }
 
 
     public function dataPesanan(Request $request)
     {
-        /**
-         * method ini sbg endpoint API untuk 
-         * Datatable serverside
-         */
-
-        if ($request->ajax()) :
-            $data =[
-               // $this->pesananModel->with('undangan')->get(),
-                $this->pesananModel->with('pemesan')->get()
-            ];
-            return DataTables::of($data)->toJson();
-        endif;
+        if ($request->ajax()) {
+            $data = $this->pesananModel->with('pemesan', 'undangan', 'paket', 'tema')->get();
+            return DataTables::of($data)->editColumn('created_at', function ($row) {
+                return $row->created_at->format('Y-m-d H:i:s');
+            })
+                ->editColumn('updated_at', function ($row) {
+                    return $row->updated_at->format('Y-m-d H:i:s');
+                })->toJson();
+        }
     }
 }

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-xl">
             <div class="header">
-                <h1><b>TEMA</b></h1>
+                <h1><b>Pesanan</b></h1>
             </div>
             <div class="content">
                 <div class="card">
@@ -13,21 +13,21 @@
                             <div class="col-sm">
                                 <h4>Tabel Pesanan</h4>
                             </div>
-                            {{-- <div class="col-sm text-end"> <button class="btn btn-success btnTambahPesanan"
+                            <div class="col-sm text-end"> <button class="btn btn-success btnTambahPesanan"
                                     data-bs-target="#modalForm" data-bs-toggle="modal"
                                     attr-href={{ route('pesanan.tambah') }}><i class="bi bi-plus-lg"></i>Tambah</button>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <table class="DataTable table-hovered table-bordered table-striped table-responsive text-center">
                             <thead>
                                 <tr class="text-center">
-                                    <th>Id Pesanan</th>
+                                    <th>Nomor Pesanan</th>
+                                    <th>Id Undangan</th>
                                     <th>Pemesan</th>
                                     <th>Paket</th>
                                     <th>Tema</th>
-                                    <th>Id Undangan</th>
                                     <th>Tanggal DiTambahkan</th>
                                     <th>Terakhir Update</th>
                                     <th>Aksi</th>
@@ -67,19 +67,27 @@
                     name: 'id_pesanan',
                 },
                 {
-                    data: 'id_pesanan',
-                    name: 'id_pesanan',
-                    // render: function(data, type, row) {
-                    //     return row.id_pesanan.nama_pemesan;
-                    // }
+                    render: function(data, type, row) {
+                        return row.undangan.id_undangan;
+                    }
+
                 },
                 {
-                    data: 'id_pesanan',
-                    name: 'id_pesanan',
+                    render: function(data, type, row) {
+                        return row.pemesan.nama_pemesan;
+                    }
+
                 },
                 {
-                    data: 'id_pesanan',
-                    name: 'id_pesanan',
+                    render: function(data, type, row) {
+                        return row.paket.nama_paket;
+                    }
+
+                },
+                {
+                    render: function(data, type, row) {
+                        return row.tema.nama_tema;
+                    }
                 },
                 {
                     data: 'created_at',
@@ -92,10 +100,10 @@
                 {
 
 
-                    // render: function(data, type, row) {
-                    //     return "<btn class='btn btn-primary editBtn' data-bs-toggle='modal' data-bs-target='#modalForm' data-bs-toggle='modal' attr-href='{!! url('/admin/paket/edit/"+row.id_pesanan+"') !!}'><i class='bi bi-pencil'></i>Edit</btn><btn class='btn btn-danger btnHapusPaket' attr-id='" +
-                    //         row.id_pesanan + "'><i class='bi bi-trash'></i>Hapus</btn>"
-                    // }
+                    render: function(data, type, row) {
+                        return "<btn class='btn btn-primary editBtn' data-bs-toggle='modal' data-bs-target='#modalForm' data-bs-toggle='modal' attr-href='{!! url('/admin/paket/edit/"+row.id_pesanan+"') !!}'><i class='bi bi-pencil'></i>Edit</btn><btn class='btn btn-danger btnHapusPaket' attr-id='" +
+                            row.id_pesanan + "'><i class='bi bi-trash'></i>Hapus</btn>"
+                    }
                 }
             ]
         });
@@ -104,75 +112,76 @@
          * Tombol Tambah Paket
          * 
          */
-        // $('.btnTambahPaket').on('click', function(a) {
-        //     changeHTML('#modalForm', '.modal-title', 'Tambah Paket');
-        //     const modalForm = document.getElementById('modalForm');
-        //     modalForm.addEventListener('shown.bs.modal', function(eventTambah) {
-        //         eventTambah.preventDefault();
-        //         eventTambah.stopImmediatePropagation();
-        //         const link = eventTambah.relatedTarget.getAttribute('attr-href');
-        //         // alert(link);
-        //         //const modalData = document.querySelector('#modalForm .modal-body');
-        //         // $(".modal-header .modal-title").html("Tambah data Barang Baru");
-        //         axios.get(link).then(response => {
-        //             $("#modalForm .modal-body").html(response.data);
-        //         });
-        //         //Contoh Ajax
-        //         //
-        //         // $.ajax(({
-        //         //     url:link,
-        //         //     method: 'GET',
-        //         //     success: function(response){
-        //         //         $('modalForm .modal-body').html('p');
-        //         //     }
-        //         //}))
+        $('.btnTambahPesanan').on('click', function(a) {
+            changeHTML('#modalForm', '.modal-title', 'Tambah Pesanan');
+            const modalForm = document.getElementById('modalForm');
+            modalForm.addEventListener('shown.bs.modal', function(eventTambah) {
+                eventTambah.preventDefault();
+                eventTambah.stopImmediatePropagation();
+                const link = eventTambah.relatedTarget.getAttribute('attr-href');
+                // alert(link);
+                //const modalData = document.querySelector('#modalForm .modal-body');
+                // $(".modal-header .modal-title").html("Tambah data Barang Baru");
+                axios.get(link).then(response => {
+                    $("#modalForm .modal-body").html(response.data);
+                });
+                //Contoh Ajax
+                //
+                // $.ajax(({
+                //     url:link,
+                //     method: 'GET',
+                //     success: function(response){
+                //         $('modalForm .modal-body').html('p');
+                //     }
+                //}))
 
-        //         //simpan
-        //         $('.btnSimpanPaket').on('click', function(submitEvent) {
-        //             submitEvent.stopImmediatePropagation();
-        //             var data = {
-        //                 'nama_paket': $('#nama_paket').val(),
-        //                 'detail_paket': $('#detail_paket').val(),
-        //                 'harga': $('#harga').val(),
-        //                 '_token': "{{ csrf_token() }}"
-        //             }
-        //             if (data.nama_paket != '' && data.detail_paket != '' && data.harga != '') {
-        //                 axios.post('{{ url('/admin/paket/simpan') }}', data).then(resp => {
-        //                     if (resp.data.status == 'success') {
-        //                         //tampilkan pop up berhasil;
-        //                         Swal.fire({
-        //                             title: "berhasil!",
-        //                             text: resp.data.pesan,
-        //                             icon: "success"
-        //                         }).then(() => {
-        //                             //close modal
-        //                             modal.hide();
-        //                             //reload tabel
-        //                             table.ajax.reload();
+                //simpan
+                $('.btnSimpanPesanan').on('click', function(submitEvent) {
+                    submitEvent.stopImmediatePropagation();
+                    var data = {
+                        'id_paket': $('#id_paket').val(),
+                        'id_tema': $('#id_tema').val(),
+                        'id_pemesan': $('#id_pemesan').val(),
+                        'id_undangan': $('#id_undangan').val(),
+                        '_token': "{{ csrf_token() }}"
+                    }
+                    if (data.id_paket != '' && data.id_tema != '' && data.id_pemesan != '' && data.id_undangan != '') {
+                        axios.post('{{ url('/admin/pesanan/simpan') }}', data).then(resp => {
+                            if (resp.data.status == 'success') {
+                                //tampilkan pop up berhasil;
+                                Swal.fire({
+                                    title: "berhasil!",
+                                    text: resp.data.pesan,
+                                    icon: "success"
+                                }).then(() => {
+                                    //close modal
+                                    modal.hide();
+                                    //reload tabel
+                                    table.ajax.reload();
 
-        //                         });
-        //                     } else {
-        //                         //tampilkan pop up gagal
-        //                         Swal.fire({
-        //                             title: "GAGAL",
-        //                             text: resp.data.pesan,
-        //                             icon: "error"
-        //                         });
-        //                     }
-        //                 });
-        //             } else {
-        //                 alert('data tidak boleh kosong');
-        //             }
+                                });
+                            } else {
+                                //tampilkan pop up gagal
+                                Swal.fire({
+                                    title: "GAGAL",
+                                    text: resp.data.pesan,
+                                    icon: "error"
+                                });
+                            }
+                        });
+                    } else {
+                        alert('data tidak boleh kosong');
+                    }
 
-        //         });
-        //     });
-        //     modalForm.addEventListener('hidden.bs.modal', function(closeEvent) {
-        //         closeEvent.preventDefault();
-        //         closeEvent.stopImmediatePropagation();
+                });
+            });
+            modalForm.addEventListener('hidden.bs.modal', function(closeEvent) {
+                closeEvent.preventDefault();
+                closeEvent.stopImmediatePropagation();
 
-        //         $('#modalForm').removeData();
-        //     });
-        // });
+                $('#modalForm').removeData();
+            });
+        });
 
 
         // /*

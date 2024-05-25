@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-xl">
             <div class="header">
-                <h1><b>TEMA</b></h1>
+                <h1><b>Tema</b></h1>
             </div>
             <div class="content">
                 <div class="card">

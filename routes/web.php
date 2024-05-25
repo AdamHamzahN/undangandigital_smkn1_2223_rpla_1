@@ -101,3 +101,10 @@ Route::prefix('/admin')->middleware('AdminMiddleware')->group(function () {
 Route::prefix('/undangan_digital-NikahYuk')->group(function () {
     Route::get('/', [UndanganController::class, 'index'])->name('undangan.index');
 });
+
+
+// tes undangan Adam
+Route::prefix('/undangan')->group(function () {
+    Route::get('/{id_undangan}', [UndanganController::class, 'index2'])->name('undangan.index');
+    Route::post('/kirimucapan', [UndanganController::class, 'kirimUcapan'])->name('undangan.kirimUcapan');
+});
