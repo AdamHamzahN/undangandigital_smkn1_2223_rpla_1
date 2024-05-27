@@ -12,22 +12,38 @@ use Yajra\DataTables\Facades\DataTables;
 
 class DashboardController extends Controller
 {
-    // //
-    // protected $pesananModel;
+    protected $dataPembayaran;
 
-    // public function __construct()
-    // {
-    //     $this->pesananModel = new pesanan();
-    // }
-    public function index(){
-        $data =[
-            'datatema'=>tema::orderBy('jumlah_pembelian_tema','desc')->take(3)->get(),
-            'datapaket'=>paket::orderBy('jumlah_pembelian_paket','desc')->take(3)->get(),
-            'datapembayaran'=>pembayaran::latest()->paginate(5),
-            'datapesanan'=>pesanan::latest()->paginate(5),
+    public function __construct()
+    {
+        $this->dataPembayaran = Pembayaran::select(
+            'pembayarans.id_pembayaran',
+            'pembayarans.id_pesanan',
+            'pakets.harga',
+            'pemesans.nama_pemesan',
+            'pembayarans.status_pembayaran',
+            'pembayarans.created_at',
+            'pembayarans.updated_at'
+        )
+            ->join('pesanans', 'pesanans.id_pesanan', '=', 'pembayarans.id_pesanan')
+            ->join('pakets', 'pakets.id_paket', '=', 'pesanans.id_paket')
+            ->join('pemesans', 'pemesans.id_pemesan', '=', 'pesanans.id_pemesan')
+            ->latest() // Fetch the latest records
+            ->take(5) // Take only the latest 5 records
+            ->get(); // Fetch the data
+    }
+
+    public function index()
+    {
+        $data = [
+            'datatema' => tema::orderBy('jumlah_pembelian_tema', 'desc')->take(3)->get(),
+            'datapaket' => paket::orderBy('jumlah_pembelian_paket', 'desc')->take(3)->get(),
+            'datapembayaran' => pembayaran::latest()->paginate(5),
+            'datapesanan' => pesanan::latest()->paginate(5),
             'datapemesan' => Pemesan::orderByDesc('id_pemesan')->paginate(5),
+            'datapembayaran'=>$this->dataPembayaran,
         ];
-        return view('admin.dashboard',$data);
+        return view('admin.dashboard', $data);
     }
 
     // public function dataPesanan(Request $request)

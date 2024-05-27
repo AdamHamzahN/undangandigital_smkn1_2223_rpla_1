@@ -25,26 +25,29 @@
                     <div class="col-sm">
                         <div class="card card-tema">
                             <div class="card-header">
+                                <h3>Pesanan Terbaru</h3>
                                 <table class="table DataTable table-hovered table-bordered table-striped table-responsive">
                                     <thead>
                                         <tr>
-                                            <th>Id Pesanan</th>
+                                            <th>Nomor Pesanan</th>
                                             <th>Nama Pemesan</th>
                                             <th>Kontak</th>
                                             <th>Tanggal Pemesanan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            @foreach ($datapesanan as $pesanan)
+                                        @foreach ($datapesanan as $pesanan)
+                                            <tr>
+                                                <td>{{ $pesanan->id_pesanan }}</td>
                                                 @foreach ($datapemesan as $pemesan)
-                                                    <td>{{ $pesanan->id_pesanan }}</td>
-                                                    <td>{{ $pemesan->nama_pemesan }}</td>
-                                                    <td>{{ $pemesan->kontak }}</td>
-                                                    <td>{{ $pesanan->created_at }}</td>
+                                                    @if ($pemesan->id_pemesan === $pesanan->id_pemesan)
+                                                        <td>{{ $pemesan->nama_pemesan }}</td>
+                                                        <td>{{ $pemesan->kontak }}</td>
+                                                    @endif
                                                 @endforeach
-                                            @endforeach
-                                        </tr>
+                                                <td>{{ $pesanan->created_at }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -68,7 +71,28 @@
                         <div class="col-sm">
                             <div class="card card-tema">
                                 <div class="card-header">
-
+                                    <h4>History Pembayaran Terbaru</h4>
+                                    <table
+                                        class="table DataTable table-hovered table-bordered table-striped table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th>Nomor Pesanan</th>
+                                                <th>Nama Pemesan</th>
+                                                <th>Total Harga</th>
+                                                <th>Status Pembayaran</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($datapembayaran as $pembayaran)
+                                                <tr>
+                                                    <td>{{ $pembayaran->id_pesanan }}</td>
+                                                    <td>{{ $pembayaran->nama_pemesan }}</td>
+                                                    <td>{{ $pembayaran->harga }}</td>
+                                                    <td>{{ $pembayaran->status_pembayaran }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

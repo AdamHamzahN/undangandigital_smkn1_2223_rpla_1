@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\temaStoreRequest;
 use App\Models\tema;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\DataTables;
 
 class TemaController extends Controller
@@ -13,16 +12,19 @@ class TemaController extends Controller
     //
     protected $temaModel;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->temaModel = new tema();
     }
-    public function index(){
-        $data =[
-            'tema'=>tema::all()
+    public function index()
+    {
+        $data = [
+            'tema' => tema::all()
         ];
         return view('admin.tema.index');
     }
-    public function tambah(){
+    public function tambah()
+    {
         return view('admin.tema.tambah');
     }
 
@@ -95,7 +97,7 @@ class TemaController extends Controller
          * method ini hanya bisa diakses dengan http request POST
          * 
          */
-        $hapus = tema::where('id_tema',$request->id_tema)->delete();
+        $hapus = tema::where('id_tema', $request->id_tema)->delete();
         if ($hapus) {
             $pesan = [
                 'status' => 'success',
@@ -110,10 +112,17 @@ class TemaController extends Controller
         return response()->json($pesan);
     }
 
-    public function dataTema(Request $request){
-        if($request->ajax()){
+    public function dataTema(Request $request)
+    {
+        if ($request->ajax()) {
             $data = $this->temaModel->get();
-            return DataTables::of($data)->toJson();
+            $data = $this->temaModel->get();
+            return DataTables::of($data)->editColumn('created_at', function ($row) {
+                return $row->created_at->format('Y-m-d H:i:s');
+            })
+                ->editColumn('updated_at', function ($row) {
+                    return $row->updated_at->format('Y-m-d H:i:s');
+                })->toJson();
         }
     }
 }
