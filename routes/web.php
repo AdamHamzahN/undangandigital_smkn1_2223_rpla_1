@@ -31,7 +31,13 @@ Route::get('/', function () {
 //Form Undangan
 Route::prefix('/formundangan')->group(function () {
     Route::get('/', [FormUndanganController::class, 'index'])->name('formundangan.index');
-    Route::get('/register', [FormUndanganController::class, 'register'])->name('formundangan.register');
+    Route::post('register', [FormUndanganController::class, 'register'])->name('formundangan.register');
+    Route::post('register2', [FormUndanganController::class, 'register2'])->name('formundangan.register2');
+    Route::post('register3', [FormUndanganController::class, 'register3'])->name('formundangan.register3');
+    Route::post('register4', [FormUndanganController::class, 'register4'])->name('formundangan.register4');
+    Route::post('tamu', [FormUndanganController::class, 'tamu'])->name('formundangan.tamu');
+    Route::post('registertamu', [FormUndanganController::class, 'registertamu'])->name('formundangan.registertamu');
+    Route::post('penutup', [FormUndanganController::class, 'penutup'])->name('formundangan.penutup');
 });
 
 

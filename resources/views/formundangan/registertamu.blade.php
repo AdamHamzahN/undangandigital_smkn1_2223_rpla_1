@@ -19,19 +19,15 @@
                 <div class="col-lg-6 mx-auto">
                     <div class="mx-auto display-flex mt-5"> <!-- Add mt-5 class for top margin -->
                         <div class="text-center bg">
-                            <h1 class="text-black text-formundangan">NIKAHYUK</h1>
+                            <h1 class="text-black text-formundangan">NIKAH YUK</h1>
                         </div>
                         <br>
-                        <div class="col-lg-15 m-3 kalimat mx-auto">
-                            <form action="{{ url('formundangan/register') }}" method="post">
+                        <div class="col-lg-15 m-3 kalimat mx-auto ">
+                            <form action="{{ url('formundangan/penutup') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="nama_admin" class="mb-3">Nama Pemesan :</label>
-                                    <input type="text" name="nama_pemesan" id="nama_pemesan" class="form-control formundangan-input" required><br>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="mb-3">Kontak Pemesan (Whatsapp) :</label><br>
-                                    <input type="text" name="kontak_pemesan" id="kontak_pemesan" class="form-control formundangan-input" required><br>
+                                    <label for="nama_admin" class="mb-3">Nama Tamu :</label>
+                                    <input type="text" name="nama_tamu" id="nama_tamu" class="form-control formundangan-input" required><br>
                                 </div>
                                 <button class="btn btn-primary btn-block ml-11 text-black ">NEXT</button>
                             </form>
