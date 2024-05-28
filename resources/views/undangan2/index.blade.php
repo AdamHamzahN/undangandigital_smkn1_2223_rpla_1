@@ -243,7 +243,7 @@
         </section>
 
 
-        {{-- Kartu Ucapan --}}
+        <!-- Kartu Ucapan -->
         <section class="kartu_ucapan" id="kartu_ucapan">
             <div class="p-3">
                 <h1 class="text-center">Kartu Ucapan</h1>
@@ -299,7 +299,7 @@
                     '_token': "{{ csrf_token() }}"
                 }
                 if (data.nama != '' && data.ucapan != '') {
-                    axios.post('{{ url('/undangan/kirimucapan') }}', data).then(resp => {
+                    axios.post('{{ url("/undangan/kirimucapan") }}', data).then(resp => {
                         if (resp.data.status == 'success') {
                             //tampilkan pop up berhasil;
                             Swal.fire({

@@ -99,12 +99,13 @@ Route::prefix('/admin')->middleware('AdminMiddleware')->group(function () {
 //undangan
 // http://localhost:8000/undangan_digital-NikahYuk?tamu=Bapak%20Jono
 Route::prefix('/undangan_digital-NikahYuk')->group(function () {
-    Route::get('/', [UndanganController::class, 'index'])->name('undangan.index');
+    // Route::get('/', [UndanganController::class, 'index'])->name('undangan.index');
+    Route::get('/{id_undangan}', [UndanganController::class, 'index'])->name('undangan.index');
 });
 
 
 // tes undangan Adam
 Route::prefix('/undangan')->group(function () {
-    Route::get('/{id_undangan}', [UndanganController::class, 'index2'])->name('undangan.index');
+    Route::get('/{id_undangan}', [UndanganController::class, 'index2'])->name('undangan.index2');
     Route::post('/kirimucapan', [UndanganController::class, 'kirimUcapan'])->name('undangan.kirimUcapan');
 });
