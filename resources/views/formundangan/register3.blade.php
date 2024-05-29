@@ -23,7 +23,7 @@
                         </div>
                         <br>
                         <div class="col-lg-15 m-3 kalimat mx-auto">
-                            <form action="{{ url('formundangan/register4') }}" method="post">
+                            <form action="{{ url('formundangan/penutup') }}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="tema" class="mb-3">Tema :</label>

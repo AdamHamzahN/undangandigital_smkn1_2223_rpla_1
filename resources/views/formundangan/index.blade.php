@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
     <title>Form Undangan</title>
-    @vite(['resources/css/formundangan.css'])
+    @vite(['resources/css/formundangan.css','resources/js/app.js'])
 </head>
 
 <body class="formundangan">
@@ -23,7 +23,7 @@
                         </div>
                         <br>
                         <div class="col-lg-15 m-3 kalimat mx-auto">
-                            <form action="{{ url('formundangan/register') }}" method="post">
+                            <form action="{{ url('/formundangan/simpan') }}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama_admin" class="mb-3">Nama Pemesan :</label>
@@ -31,9 +31,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="mb-3">Kontak Pemesan (Whatsapp) :</label><br>
-                                    <input type="text" name="kontak_pemesan" id="kontak_pemesan" class="form-control formundangan-input" required><br>
+                                    <input type="text" name="kontak" id="kontak_pemesan" class="form-control formundangan-input" required><br>
                                 </div>
-                                <button class="btn btn-primary btn-block ml-11 text-black ">NEXT</button>
+                                <button type="submit" class="btn btn-primary btn-block ml-11 text-black ">NEXT</button>
                             </form>
                         </div>
                     </div>
