@@ -28,6 +28,7 @@ class DashboardController extends Controller
             ->join('pesanans', 'pesanans.id_pesanan', '=', 'pembayarans.id_pesanan')
             ->join('pakets', 'pakets.id_paket', '=', 'pesanans.id_paket')
             ->join('pemesans', 'pemesans.id_pemesan', '=', 'pesanans.id_pemesan')
+            // ->orderByDesc('pembayarans.updated_at')
             ->latest() // Fetch the latest records
             ->take(5) // Take only the latest 5 records
             ->get(); // Fetch the data

@@ -84,7 +84,7 @@
                 },
                 {
                     render: function(data, type, row) {
-                        return row.undangan.id_undangan, "";
+                        return row.undangan.id_undangan;
                     }
 
                 },

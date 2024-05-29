@@ -32,10 +32,13 @@ class PembayaranController extends Controller
     }
 
 
-    public function edit()
+    public function edit(Request $request)
     {
-        $data = $this->dataPembayaran->first();
-        return view('admin.pembayaran.edit', ['dataPembayaran' => $data]);
+        $data = [
+            'dataPembayaran' => $this->dataPembayaran->where('id_pembayaran', $request->id_pembayaran)->get(),
+            'pembayaran' => pembayaran::where('id_pembayaran', '=', $request->id_pembayaran)->first(),
+        ];
+        return view('admin.pembayaran.edit', $data);
     }
 
     public function update(Request $request)

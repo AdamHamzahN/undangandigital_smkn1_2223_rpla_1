@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-xl">
             <div class="header">
-                <h1><b>daftar Pembayaran</b></h1>
+                <h1><b>Daftar Pembayaran</b></h1>
             </div>
             <div class="content">
                 <div class="card">

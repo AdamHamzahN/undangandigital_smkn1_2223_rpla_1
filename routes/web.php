@@ -103,6 +103,10 @@ Route::prefix('/admin')->middleware('AdminMiddleware')->group(function () {
         
     });
 
+    /**
+     * Halaman Daftar Pembayaran
+     * /admin/daftarpembayaran
+     */
     Route::prefix('/daftarpembayaran')->group(function () {
         Route::get('/',[PembayaranController::class,'index'])->name('pembayaran.index');
         Route::get('/data',[PembayaranController::class,'dataPembayaran'])->name('pembayaran.data');
