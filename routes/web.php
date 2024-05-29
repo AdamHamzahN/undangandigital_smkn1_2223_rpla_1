@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\FormUndanganController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaketController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UndanganController;
@@ -30,7 +31,13 @@ Route::get('/', function () {
 //Form Undangan
 Route::prefix('/formundangan')->group(function () {
     Route::get('/', [FormUndanganController::class, 'index'])->name('formundangan.index');
-    Route::get('/register', [FormUndanganController::class, 'register'])->name('formundangan.register');
+    Route::post('register', [FormUndanganController::class, 'register'])->name('formundangan.register');
+    Route::post('register2', [FormUndanganController::class, 'register2'])->name('formundangan.register2');
+    Route::post('register3', [FormUndanganController::class, 'register3'])->name('formundangan.register3');
+    Route::post('register4', [FormUndanganController::class, 'register4'])->name('formundangan.register4');
+    Route::post('tamu', [FormUndanganController::class, 'tamu'])->name('formundangan.tamu');
+    Route::post('registertamu', [FormUndanganController::class, 'registertamu'])->name('formundangan.registertamu');
+    Route::post('penutup', [FormUndanganController::class, 'penutup'])->name('formundangan.penutup');
 });
 
 
@@ -91,8 +98,24 @@ Route::prefix('/admin')->middleware('AdminMiddleware')->group(function () {
     Route::prefix('/pesanan')->group(function () {
         Route::get('/', [PesananController::class, 'index'])->name('pesanan.index');
         Route::get('/data', [PesananController::class, 'dataPesanan'])->name('pesanan.data');
-        Route::get('/tambah', [PesananController::class, 'tambah'])->name('pesanan.tambah');
+        Route::get('/tambahpemesan', [PesananController::class, 'tambahPemesan'])->name('pesanan.tambahpemesan');
+        Route::post('/simpanpemesan', [PesananController::class, 'simpanPemesan'])->name('pesanan.simpanpemesan');
+        Route::get('/tambahdetailundangan',[PesananController::class, 'tambahDetailUndangan'])->name('pesanan.tambahdetailundangan');
+        Route::post('/simpandetailundangan', [PesananController::class, 'simpanDetailUndangan'])->name('pesanan.simpandetailundangan');
+        Route::post('/hapus',[PesananController::class, 'delete'])->name('pesanan.delete');
+        Route::get('/edit/{id_pesanan}',[PesananController::class, 'edit'])->name('pesanan.edit'); 
+        Route::post('/update',[PesananController::class, 'update'])->name('pesanan.update');
+        Route::get('/detailundangan/{id_undangan}',[PesananController::class, 'detailUndangan'])->name('pesanan.detailUndangan');
+        
     });
+
+    Route::prefix('/daftarpembayaran')->group(function () {
+        Route::get('/',[PembayaranController::class,'index'])->name('pembayaran.index');
+        Route::get('/data',[PembayaranController::class,'dataPembayaran'])->name('pembayaran.data');
+        Route::get('/edit/{id_pembayaran}',[PembayaranController::class,'edit'])->name('pembayaran.edit');
+        Route::post('/update',[PembayaranController::class,'update'])->name('pembayaran.update');
+    });
+    
 });
 
 

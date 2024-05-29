@@ -15,16 +15,25 @@
         auto: auto
       )
 }
+.kalimat{
+    padding: 100px;
+    background-color: #CBF1F5;
+    border-radius: 25px;
+}
 
 .text-formundangan {
-    font-family: inter;
+        font-family: "Monofett", monospace;
+        font-weight: 400;
+        font-style: normal;
+        padding: 25px;
+      
 }
 
 .parent {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
 }
 
 .formundangan-input {

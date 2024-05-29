@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('id_pembayaran', true, true)->nullable(false);
             $table->integer('id_pesanan')->index('id_pesanan');
             $table->enum('status_pembayaran', ['lunas', 'belum lunas'])->default('belum lunas');
-            $table->date('tanggal_pembayaran')->nullable(false);
+            $table->timestamps();
 
             $table->foreign('id_pesanan')->references('id_pesanan')
                 ->on('pesanans')
