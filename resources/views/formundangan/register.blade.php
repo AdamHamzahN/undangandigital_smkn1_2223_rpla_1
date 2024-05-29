@@ -23,7 +23,7 @@
                         </div>
                         <br>
                         <div class="col-lg-15 m-3 kalimat mx-auto ">
-                            <form action="{{ url('formundangan/register2') }}" method="post">
+                            <form action="{{ url('/formundangan/simpanpengantin') }}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama_admin" class="mb-3">Nama Pengantin Pria :</label>
@@ -57,7 +57,7 @@
                                     <label for="password" class="mb-3">Nama Ibu Wanita :</label><br>
                                     <input type="text" name="nama_ibu_wanita" id="nama_ibu_wanita" class="form-control formundangan-input" required><br>
                                 </div>
-                                <button class="btn btn-primary btn-block ml-11 text-black ">NEXT</button>
+                                <button type="submit" class="btn btn-primary btn-block ml-11 text-black ">NEXT</button>
                             </form>
                         </div>
                     </div>

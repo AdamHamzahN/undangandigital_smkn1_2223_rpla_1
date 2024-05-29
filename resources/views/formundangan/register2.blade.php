@@ -23,28 +23,30 @@
                         </div>
                         <br>
                         <div class="col-lg-15 m-3 kalimat mx-auto">
-                            <form action="{{ url('formundangan/register3') }}" method="post">
+                            <form action="{{ url('formundangan/tamu') }}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="tanggal_akad" class="mb-3">Tanggal Akad :</label>
-                                    <input type="text" name="tanggal_akad" id="tanggal_akad" class="form-control formundangan-input" required><br>
+                                    <input type="date" name="waktu_akad" id="tanggal_akad" class="form-control formundangan-input" required><br>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat" class="mb-3">Alamat :</label><br>
-                                    <input type="text" name="alamat" id="alamat" class="form-control formundangan-input" required><br>
+                                    <input type="text" name="alamat_akad" id="alamat" class="form-control formundangan-input" required><br>
                                 </div>
                                 <div class="form-group">
                                     <label for="Map" class="mb-3">Map :</label><br>
+                                    <input type="text" name="map_akad" id="map" class="form-control formundangan-input" required><br>
                                 <div class="form-group">
                                     <label for="tanggal_resepsi" class="mb-3">Tanggal Resepsi :</label>
-                                    <input type="text" name="tanggal_resepsi" id="tanggal_resepsi" class="form-control formundangan-input" required><br>
+                                    <input type="date" name="waktu_resepsi" id="tanggal_resepsi" class="form-control formundangan-input" required><br>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat" class="mb-3">Alamat :</label>
-                                    <input type="text" name="alamat" id="alamat" class="form-control formundangan-input" required><br>
+                                    <input type="text" name="alamat_resepsi" id="alamat2" class="form-control formundangan-input" required><br>
                                 </div>
                                 <div class="form-group">
                                     <label for="map" class="mb-3">Map :</label><br>
+                                    <input type="text" name="map_resepsi" id="peta" class="form-control formundangan-input" required><br>
                                 <button class="btn btn-primary btn-block ml-11 text-black ">NEXT</button>
                                 <button class="btn btn-primary btn-block ml-11 text-black ">BACK</button>
                             </form>

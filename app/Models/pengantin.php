@@ -14,6 +14,8 @@ class pengantin extends Model
         'nama_pengantin_pria',
         'nama_pengantin_wanita',
         'nama_ayah_pria',
+        'nama_panggilan_pria',
+        'nama_panggilan_wanita',
         'nama_ibu_pria',
         'nama_ayah_wanita',
         'nama_ibu_wanita'
