@@ -20,7 +20,7 @@ class UndanganController extends Controller
             'ucapans' => kartu_ucapan::where('id_undangan', $request->id_undangan)->get(),
             'id_undangans'=> $request->id_undangan
         ];
-        return view('undangan2.index', $data);
+        return view('undangan.index', $data);
     }
 
     

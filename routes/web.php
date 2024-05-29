@@ -31,7 +31,13 @@ Route::get('/', function () {
 //Form Undangan
 Route::prefix('/formundangan')->group(function () {
     Route::get('/', [FormUndanganController::class, 'index'])->name('formundangan.index');
-    Route::get('/register', [FormUndanganController::class, 'register'])->name('formundangan.register');
+    Route::post('register', [FormUndanganController::class, 'register'])->name('formundangan.register');
+    Route::post('register2', [FormUndanganController::class, 'register2'])->name('formundangan.register2');
+    Route::post('register3', [FormUndanganController::class, 'register3'])->name('formundangan.register3');
+    Route::post('register4', [FormUndanganController::class, 'register4'])->name('formundangan.register4');
+    Route::post('tamu', [FormUndanganController::class, 'tamu'])->name('formundangan.tamu');
+    Route::post('registertamu', [FormUndanganController::class, 'registertamu'])->name('formundangan.registertamu');
+    Route::post('penutup', [FormUndanganController::class, 'penutup'])->name('formundangan.penutup');
 });
 
 
@@ -120,12 +126,13 @@ Route::prefix('/admin')->middleware('AdminMiddleware')->group(function () {
 //undangan
 // http://localhost:8000/undangan_digital-NikahYuk?tamu=Bapak%20Jono
 Route::prefix('/undangan_digital-NikahYuk')->group(function () {
-    Route::get('/', [UndanganController::class, 'index'])->name('undangan.index');
+    // Route::get('/', [UndanganController::class, 'index'])->name('undangan.index');
+    Route::get('/{id_undangan}', [UndanganController::class, 'index'])->name('undangan.index');
 });
 
 
 // tes undangan Adam
 Route::prefix('/undangan')->group(function () {
-    Route::get('/{id_undangan}', [UndanganController::class, 'index2'])->name('undangan.index');
+    Route::get('/{id_undangan}', [UndanganController::class, 'index2'])->name('undangan.index2');
     Route::post('/kirimucapan', [UndanganController::class, 'kirimUcapan'])->name('undangan.kirimUcapan');
 });

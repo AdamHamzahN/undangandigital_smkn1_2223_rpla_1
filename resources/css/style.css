@@ -1,18 +1,19 @@
 /* Undangan */
 
 :root {
-    --pink: #f14e95;
-    --red: #FF8989;
-    --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+    --red: #f14e95;
+    --pink: #FF8989;
+    --shadow: 0 4px 4px rgb(0 0 0 / 0.5);
 }
 
 body {
     font-size: 1.2rem;
     font-family: "Work Sans", sans-serif;
-    min-height: 4000px;  
+    min-height: 4000px;
+    scroll-behavior: smooth;
 }
 
-img {
+/* img {
     content: '';
     position: absolute;
     top: 0;
@@ -21,18 +22,21 @@ img {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    /* background-position: center; */
-    /* background-size: cover; */
-}
+    background-position: center;
+    background-size: cover;
+} */
 
 
 .hero {
+    background-image: url(img/pasangan.png);
+    background-size: cover;
+    background-position: center;
     position: relative;
     min-height: 100vh;
 }
 
 .content {
-    max-height: 43vh;
+    max-height: 45vh;
 }
 
 .hero h1, .hero h5, .hero h3, .hero p{
@@ -71,6 +75,7 @@ img {
     color: white;
 }
 
+/* tampilan ke2 */
 .home {
     background-image: url(img/pasangan2.png);
     background-size: cover;
@@ -81,7 +86,7 @@ img {
 
 .home h1 {
     font-family: "Sacramento", cursive;
-    font-size: 4rem;
+    font-size: 5rem;
     color: white;
     text-shadow: var(--shadow);
 }
@@ -91,60 +96,176 @@ img {
     text-shadow: var(--shadow);
 }
 
+/* tampilan ke3 */
 .pasangan {
     background-image: url(img/bg.png);
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
     min-height: 100vh;
-    padding-top: 1rem;
-}
-
-.pasangan .pria {
-    background-image: url(img/pria.png);
-    background-size: cover;
-    border-radius: 100%;
-}
-
-.pasangan .wanita {
-    background-image: url(img/wanita.png);
-    background-size: cover;
-    border-radius: 100%;
-    
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 .pasangan .couple {
-    margin-top: 50px;
+    margin-top: 80px;
 }
+
+/* .pasangan .pria {
+    background-image: url(img/pria.png);
+    background-size: cover;
+    border-radius: 50%;
+} */
+/* 
+.pasangan .wanita {
+    background-image: url(img/wanita.png);
+    background-size: cover;
+    border-radius: 50%;
+} */
+
 
 .pasangan .couple h3{
     font-family: 'Sacramento';
     font-size: 2.4rem;
-    color: var(--red);
+    color: var(--pink);
 }
 
 .pasangan .couple img {
     width: 100%;
 }
 
+/* tampilan ke4 */
+.info {
+    /* background-color: black; */
+    background-image: url(img/background-cincin.png);
+    background-size: cover;
+    background-position: center; 
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 8rem
+}
+
+.info h2,
+.gallery h2,
+.kartu_ucapan h2{
+    color: var(--pink);
+    font-family: 'sacramento';
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.info .card{
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: 1px solid #999;
+    
+}
+
+.info .card-header{
+    border-bottom: 1px solid #999;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.info .card-body{
+    font-size: 1rem;
+}
+
+.info .card-footer{
+    border-top: 1px solid #999;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* tampilan ke5 */
+.gallery {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #f5f5f5;
+    
+}
+
+/* tampilan ke6 */
+.kartu_ucapan {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    /* background-color: #f5f5f5; */
+    
+}
+
+/* Sembunyikan navigasi secara default */
+/* .navbar-light {
+    display: none;
+    
+} */
+
+.navbar-light.show-nav {
+    display: block;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.audio-icon-wrapper{
+    width: 3rem;
+    height: 3rem;
+    font-size: 3rem;
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2rem;
+    cursor: pointer;
+    color: white;
+    opacity: 0.5;
+    mix-blend-mode: difference;
+    animation: rotating 4s linear infinite;
+    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Media Query */
 /* laptop */
-@media (max-widht: 992px){
-    html {
+@media (max-width: 992px){
+    body {
         font-size: 75%;
+    }
+    .simply-countdown >.simply-section {
+        padding: 70px;
     }
 }
 
 /* tablet */
-@media (max-widht: 768px){
-    html {
+@media (max-width: 768px){
+    body {
         font-size: 65%;
+    }
+    .simply-countdown >.simply-section {
+        padding: 60px;
+        margin: 5px;
+        margin-top: 30px;
     }
 }
 
 /* mobile phone */
-@media (max-widht: 576px){
-    html {
+@media (max-width: 576px){
+    body {
         font-size: 60%;
+    }
+    .simply-countdown >.simply-section {
+        padding: 45px;
+        margin: 3px;
+        margin-top: 30px;
     }
 }
 
