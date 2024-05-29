@@ -1,3 +1,41 @@
+<?php
+//detail pengantin
+$pengantin_laki = 'Fajri';
+$pengantin_perempuan = 'Bayu';
+$nama_lengkap_laki = 'Adam Manusia Pertama';
+$nama_lengkap_perempuan = 'Hawa Perempuan Pertama';
+
+//keterangan anak ke-
+$keterangan_pengantin_laki = 'Putra Pertama';
+$keterangan_pengantin_perempuan = 'Putri kedua';
+
+//orangtua pengantin
+$ayah_laki = 'Egi';
+$ayah_perempuan = 'suharno';
+$ibu_laki = 'dewi';
+$ibu_perempuan = 'maria';
+
+//instagram pengantin
+$link_instagram_laki = 'https://www.instagram.com/adam_m/?igsh=N3Rwa3Z3MWVyOHg3';
+$username_ig_laki = 'adam_m';
+$link_instagram_perempuan = 'https://www.instagram.com/hawa123/?igsh=N3Rwa3Z3MWVyOHg3';
+$username_ig_perempuan = 'hawa123';
+
+//keterangan Acara
+//akad
+$tanggal_akad = 'Sabtu, 04 April 2024';
+$jam_akad = '09.00 - 10.00 WIB';
+$tempat_akad = 'Aula Gedung Sate jl. Hayam Wuruk No.16';
+$link_map_akad = 'https://www.google.com/maps/place/Gedung+Sate/@-6.9024715,107.6187018,17z/data=!3m1!4b1!4m6!3m5!1s0x2e68e64c5e8866e5:0x37be7ac9d575f7ed!8m2!3d-6.9024715!4d107.6187018!16zL20vMGRqOXg3?entry=ttu';
+
+//resepsi
+$tanggal_resepsi = 'Sabtu, 04 April 2024';
+$jam_resepsi = '09.00 - 10.00 WIB';
+$tempat_resepsi = 'Aula Gedung Sate jl. Hayam Wuruk No.16';
+$link_map_resepsi = 'https://www.google.com/maps/place/Gedung+Sate/@-6.9024715,107.6187018,17z/data=!3m1!4b1!4m6!3m5!1s0x2e68e64c5e8866e5:0x37be7ac9d575f7ed!8m2!3d-6.9024715!4d107.6187018!16zL20vMGRqOXg3?entry=ttu';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,11 +57,12 @@
     />
 
     <!-- simply countdown -->
-    <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css"/>
-    <script src="countdown/simplyCountdown.min.js"></script>
+    {{-- <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css"/>
+    <script src="countdown/simplyCountdown.min.js"></script> --}}
 
     <!-- <link rel="stylesheet" href="style.css" /> -->
-    @vite(['resources/css/style.css','resources/js/app.js'])
+    @vite(['resources/css/style.css', 'resources/js/app.js','resources/js/simplyCountdown.min.js','resources/css/simplyCountdown.theme.default.css'])
+
 </head>
 
 <body>
@@ -61,7 +100,7 @@
         <main class="content">
 
             <h3>The Wedding Of</h3>
-            <h1>Adam & Hawa</h1>
+            <h1>{{ $pengantin_laki }} & {{$pengantin_perempuan}}</h1>
             <h5>Kepada Yth :</h5>
             <div class="nama_tamu">
                 <?php
@@ -70,9 +109,9 @@
             </div>
 
             <p>Tanpa mengurangi rasa hormat,kami mengundang bapak/ibu/saudara/i/ untuk hadir diacara kami</p>
-            <a href="#home" class="btn btn-lg mt-2"><i class="bi bi-envelope-open"></i>Buka Undangan</a>
-            <!-- <a href="#home" class="btn btn-lg mt-3 bi bi-envelope-open"
-            onClick="enableScroll()"> Buka Undangan</a> -->
+            {{-- <a href="#home" class="btn btn-lg mt-2"><i class="bi bi-envelope-open"></i>Buka Undangan</a> --}}
+            <a href="#home" class="btn btn-lg mt-3 bi bi-envelope-open"
+            onClick="enableScroll()"> Buka Undangan</a>
 
         </main>
     </section>
@@ -82,8 +121,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
-                    <h1>Adam & Hawa</h1>
-                    <h5>Sabtu, 04 April 2024</h5>
+                    <h1><?= $pengantin_laki ?> & <?= $pengantin_perempuan ?></h1>
+                    <h5><?= $tanggal_resepsi ?></h5>
                 </div>
             </div>
         </div>
@@ -115,7 +154,7 @@
                             <h3>Adam</h3>
                             <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, consequuntur!</p> -->
                             <p>Putra pertama dari Bpk.Suryo <br> dan <br> Ibu Ozawa</p>
-                            <i class="bi bi-instagram"><a href="https://www.instagram.com/adam_m/?igsh=N3Rwa3Z3MWVyOHg3"> adam_m</a></i>
+                            <i class="bi bi-instagram"><a href="{{$link_instagram_laki}}"> {{$username_ig_laki}}</a></i>
                         </div>
 
                         <div class="pria col-4">
@@ -141,7 +180,7 @@
                             <h3>Hawa</h3>
                             <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, consequuntur!</p> -->
                             <p>Putri kedua dari Bpk.Nugroho <br> dan <br> Ibu Maria</p>
-                            <i class="bi bi-instagram"><a href="https://www.instagram.com/hawa123/?igsh=N3Rwa3Z3MWVyOHg3"> hawa123</a></i>
+                            <i class="bi bi-instagram"><a href="{{$link_instagram_perempuan}}"> {{$username_ig_perempuan}}</a></i>
                         </div>
                     </div>
                 </div>
@@ -171,11 +210,11 @@
                     <div class="row justify-content-center">
                     <div class="col-md-6">
                         <i class="bi bi-clock d-block"></i>
-                        <span>09.00 - 10.00</span>
+                        <span>{{$jam_akad}}</span>
                     </div>
                     <div class="col-md-6">
                         <i class="bi bi-calendar2 d-block"></i>
-                        <span>Sabtu, 04 April 2024</span>
+                        <span>{{$tanggal_akad}}</span>
                     </div>
                     </div>
                 </div>
@@ -199,11 +238,11 @@
                     <div class="row justify-content-center">
                     <div class="col-md-6">
                         <i class="bi bi-clock d-block"></i>
-                        <span>11.00 - selesai</span>
+                        <span>{{$jam_resepsi}}</span>
                     </div>
                     <div class="col-md-6">
                         <i class="bi bi-calendar2 d-block"></i>
-                        <span>Sabtu, 04 April 2024</span>
+                        <span>{{$tanggal_resepsi}}</span>
                     </div>
                     </div>
                 </div>
@@ -233,7 +272,7 @@
             </div>
 
             <div class="row  row-cols-md-4 row-cols-sm-3 row-cols-2
-                justify-content-center">
+                justify-content-center" >
                 <div class="col mt-3">
                     <a href="{{ asset('assets/1.png') }}" data-toggle="lightbox" data-gallery="mygallery">
                     <img src="{{ asset('assets/1thumbnail.png') }}" alt="Adam & Hawa 1" class="img-fluid
@@ -282,42 +321,54 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 col-10 text-center">
                     <h2>Kartu Ucapan</h2>
-                    <input type="hidden" id="id_undangan" name="id_undangan" value="{{ $id_undangans }}">
-                <label for="nama">Nama</label>
-                <input type="text" class="nama form-control" id="nama" name="nama" required>
-
-                <label for="ucapan">Kirim Ucapan</label>
-                <input type="text" class="ucapan form-control" id="ucapan" name="ucapan" required>
-
-                <button class="btn btn-warning btnKirimUcapan m-2">Kirim Ucapan</button>
-
-                <h2>Ucapan Dari Yang Lain</h2>
-                <div class="kartu-ucapan ">
-                    @foreach ($ucapans as $ucapan)
-                        @if ($ucapan == null)
-                            <div class="ucapan">Belum Ada Ucapan Dari Yang Lain</div>
-                        @else
-                            <div class="ucapan bg-light border border-warning rounded m-1 p-2">
-                                <h4>Dari <span class="text-primary"></span>{{ $ucapan->nama }}</h4>
-                                <h4>{{ $ucapan->ucapan }}</h4>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
                 </div>
             </div>
+                    
+
+                    <input type="hidden" id="id_undangan" name="id_undangan" value="{{ $id_undangans }}">
+                    {{-- <label for="nama">Nama</label> --}}
+                    <h6>Nama:</h6>
+                    <input type="text" class="nama form-control" id="nama" name="nama" placeholder='<?php
+                    echo $_GET['tamu'];
+                    ?>' required>
+
+                    {{-- <label for="ucapan">Kirim Ucapan</label> --}}
+                    <br>
+                    <h6>Kirim Ucapan:</h6>
+                    <textarea type="text" class="ucapan form-control" id="ucapan" name="ucapan"  placeholder='Masukkan ucapan' rows="5" required></textarea>
+
+                    <button class="btn btn-success btnKirimUcapan m-2">Kirim <i class="bi bi-send"></i></button>
+
+                    {{-- <h2>Ucapan Dari Yang Lain</h2> --}}
+                    <div class="kartu-ucapan ">
+                        @foreach ($ucapans as $ucapan)
+                            @if ($ucapan == null)
+                                <div class="ucapan">Belum Ada Ucapan Dari Yang Lain</div>
+                            @else
+                                {{-- Dari <span class=""></span> --}}
+                                <div class="bg-light border border-warning rounded m-1 p-2">
+                                
+                                    <h4><i class="bi bi-person-fill"></i> {{ $ucapan->nama }} </h4>
+                                    <h4>{{ $ucapan->ucapan }}</h4>
+                                    
+                                </div>
+                                    
+                            
+                            @endif
+                        @endforeach
+                    </div>
         </div>
     </section>
 
-    <!-- <div class="audio-container">
+    <div class="audio-container">
         <audio id="song" autoplay loop>
-            <source src="audio/loves-serenade-188266.mp3" type="audio/mp3">
+            <source src="{{asset('audio/loves-serenade-188266.mp3')}}" type="audio/mp3">
         </audio>
 
         <div class="audio-icon-wrapper" style="display: none;">
             <i class="bi bi-disc"></i>
         </div>
-    </div> -->
+    </div>
 
 <!--  Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
@@ -330,7 +381,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js">
     </script>
 
-    <script>
+    <script type="module">
         simplyCountdown('.simply-countdown', {
             year: 2024, // required
             month: 12, // required
@@ -346,7 +397,7 @@
     </script>
 
 
-    <!-- <script>
+    <script>
         const rootElement = document.querySelector(":root");
         const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
         const audioIcon = document.querySelector('.audio-icon-wrapper i');
@@ -355,23 +406,23 @@
 
         
 
-        function disableScroll() {
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        // function disableScroll() {
+        //     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        //     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
-            window.onscroll = function() {
-            window.scrollTo(scrollTop, scrollLeft);
-            }
+        //     window.onscroll = function() {
+        //     window.scrollTo(scrollTop, scrollLeft);
+        //     }
 
-            rootElement.style.scrollBehavior = 'auto';
-        }
+        //     rootElement.style.scrollBehavior = 'auto';
+        // }
 
-        function enableScroll() {
-            window.onscroll = function () { }
-            rootElement.style.scrollBehavior = 'smooth';
-            // localStorage.setItem('opened', 'true');
-            playAudio();
-        }
+        // function enableScroll() {
+        //     window.onscroll = function () { }
+        //     rootElement.style.scrollBehavior = 'smooth';
+        //     // localStorage.setItem('opened', 'true');
+        //     playAudio();
+        // }
 
         function playAudio(){
             // song.volume = 0.1;
@@ -397,17 +448,18 @@
         // if (!localStorage.getItem('opened')){
             
         // }
-        disableScroll();
+        // disableScroll();
         
-        </script> -->
+        </script>
 
-        <script>
+        <script type="module">
             document.addEventListener('DOMContentLoaded', function() {
                 const bukaUndanganButton = document.querySelector('.btn-lg');
                 const nav = document.querySelector('.navbar-light');
                 bukaUndanganButton.addEventListener('click', function() {
                     document.body.classList.remove('no-scroll');
                     nav.classList.add('show-nav');
+                    playAudio();
                 });
 
                 // Cegah scroll saat halaman dimuat (sebelum tombol ditekan)
@@ -434,9 +486,8 @@
                                 icon: "success"
                             }).then(() => {
                                 //reload tabel
-                                $('.kartu-ucapan').append('<div class="ucapan"><h6>' + data.nama +
-                                    '</h6><h6>' + data.ucapan + '</h6></div>');
-
+                                $('.kartu-ucapan').append('<div class="bg-light border border-warning rounded m-1 p-2"><h4><i class="bi bi-person-fill"></i> '+ data.nama +
+                                    '</h4><h4>' + data.ucapan + '</h4></div>');
                             });
                         } else {
                             //tampilkan pop up gagal

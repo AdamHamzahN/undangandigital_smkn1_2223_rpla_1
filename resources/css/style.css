@@ -193,13 +193,15 @@ body {
 }
 
 /* Sembunyikan navigasi secara default */
-/* .navbar-light {
+.navbar-light {
     display: none;
     
-} */
+}
 
 .navbar-light.show-nav {
     display: block;
+    box-shadow : var(--shadow);
+    color: var(--pink);
 }
 
 body.no-scroll {
@@ -211,7 +213,7 @@ body.no-scroll {
     height: 3rem;
     font-size: 3rem;
     position: fixed;
-    bottom: 2.5rem;
+    bottom: 7rem;
     right: 2rem;
     cursor: pointer;
     color: white;
